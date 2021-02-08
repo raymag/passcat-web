@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcat</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="all">
+        <main id="box">
+            <h1>Passcat</h1>
+            <input type="text" id="root" placeholder="Root Word"/>
+            <input type="text" id="signature" placeholder="Signature"/>
+            <label>Size:</label>
+            <input type="number" id="size" value="4" min="1" max="32">
+            <button id="generate">Generate Password</button>
+
+            <input id="generated" type="text" placeholder="Generated Password" readonly/>
+            <span id="status"></span>
+            <a id="dev" href="https://raymag.github.io/" target="_blank" title="Developer">Raymag</a>
+        </main>
+    </div>
+    <script src="passcat.js"></script>
+</body>
+</html>
