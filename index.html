@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passcat</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link href="Bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet" >
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="all">
-        <main id="box">
-            <h1>Passcat</h1>
+    <div id="all" class="container">
+        <main id="box" class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12">
+            <h1 class="border mb-3">Passcat</h1>
             <input type="text" id="root" placeholder="Root Word"/>
             <input type="text" id="signature" placeholder="Signature"/>
             <label>Size:</label>
@@ -21,6 +23,7 @@
             <input id="generated" type="text" placeholder="Generated Password" readonly/>
             <span id="status"></span>
             <a id="dev" href="https://raymag.github.io/" target="_blank" title="Developer">Raymag</a>
+            <img src="favicon.png" class="col-md-1 col-sm-1 col-1">
         </main>
     </div>
     <script src="passcat.js"></script>

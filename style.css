@@ -1,5 +1,6 @@
 * {
-    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 0;
     box-sizing: border-box;
     --primary: #CDDC39;
@@ -19,8 +20,6 @@ body {
 }
 
 #all {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,6 @@ body {
     border-radius: 5px;
     padding: 20px;
     font-size: 2em;
-    width: 60vw;
 }
 
 #box label {
@@ -44,11 +42,9 @@ body {
     width: 50%;
     margin: auto;
     text-align: center;
-    position: relative;
     background: var(--light);
     color: var(--dark);
     border-radius: 5px;
-    top: -60px;
 }
 
 #box input {
