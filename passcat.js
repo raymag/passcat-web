@@ -83,4 +83,7 @@ function saveData(){
 
   localStorage.setItem('root_to_save', JSON.stringify(root_to_save));
   localStorage.setItem('signature_to_save', JSON.stringify(signature_to_save));
+
+  localStorage.getItem(root_to_save);
+  localStorage.getItem(root_to_save);  
 }
