@@ -17,7 +17,7 @@ function copy() {
 
     status.className = "greenStatus"
     status.innerText = "Password copied to Clipboard!"
-  
+
 }
 
 function hashstring(string) {
@@ -64,6 +64,23 @@ function generate() {
             const password = hint + sign + coreStart + coreEnd
             generated.value = password
         })
-    
 
+
+}
+// the function erases the form's field's contents each 40 seconds
+function Cleanfield(){
+    document.getElementById('signature').value = '';
+    document.getElementById('size').value = '';
+}
+
+setInterval(function(){
+    Cleanfield();
+}, 40 * 1000);
+
+function saveData(){
+  var root_to_save = document.querySelector("#root");
+  var signature_to_save = document.querySelector("#signature")
+
+  localStorage.setItem('root_to_save', JSON.stringify(root_to_save));
+  localStorage.setItem('signature_to_save', JSON.stringify(signature_to_save));
 }
