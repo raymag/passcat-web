@@ -4,10 +4,85 @@ const size = document.querySelector("#size")
 const generated = document.querySelector("#generated")
 
 const status = document.querySelector("#status")
+const menuBtn = document.querySelector("#menu")
 const generateBtn = document.querySelector("#generate")
+const saveBtn = document.querySelector("#save")
+
+menuBtn.addEventListener("click", toggleMenu)
 
 generateBtn.addEventListener("click", generate)
 generated.addEventListener("click", copy)
+
+saveBtn.addEventListener("click", saveData)
+
+loadData();
+
+function loadData() {
+    const size_to_save = document.querySelector("#size")
+    const signature_to_save = document.querySelector("#signature")
+    
+    const size = localStorage.getItem('d2d166') // size
+    const signature = localStorage.getItem('d092') // signature
+    
+    if (size) {
+        size_to_save.value = size
+    } 
+    if (signature) {
+        signature_to_save.value = signature
+    }
+    console.log("loaded", size_to_save, size)
+}
+function saveData(){
+    const size_to_save = document.querySelector("#size")
+    const signature_to_save = document.querySelector("#signature")
+    
+    localStorage.setItem('d2d166', size_to_save.value)
+    localStorage.setItem('d092', signature_to_save.value)
+    console.log("crey")
+  
+    toggleMenu()
+}
+  
+
+function caesarCipher(str, shift) {
+    // Normalize the shift for letters and digits
+    const letterShift = shift % 26;
+    const digitShift = shift % 10;
+    let result = '';
+
+    for (let char of str) {
+        if (/[A-Z]/.test(char)) { // Uppercase letters
+            const newChar = String.fromCharCode((char.charCodeAt(0) - 65 + letterShift) % 26 + 65);
+            result += newChar;
+        } else if (/[a-z]/.test(char)) { // Lowercase letters
+            const newChar = String.fromCharCode((char.charCodeAt(0) - 97 + letterShift) % 26 + 97);
+            result += newChar;
+        } else if (/[0-9]/.test(char)) { // Digits
+            const newChar = String.fromCharCode((char.charCodeAt(0) - 48 + digitShift) % 10 + 48);
+            result += newChar;
+        } else {
+            // If it's a special character, leave it unchanged
+            result += char;
+        }
+    }
+
+    return result;
+}
+
+
+function toggleMenu(){
+    const toggled = menuBtn.className != '';
+
+    if (toggled) {
+        menuBtn.className = "";
+        document.querySelector("#settings").className = "hide";
+        document.querySelector("#home").className = "";
+    } else {
+        menuBtn.className = "opened";
+        document.querySelector("#home").className = "hide";
+        document.querySelector("#settings").className = "";
+    }
+}
 
 function copy() {
     console.log("Copying")
@@ -76,14 +151,3 @@ function Cleanfield(){
 setInterval(function(){
     Cleanfield();
 }, 40 * 1000);
-
-function saveData(){
-  var root_to_save = document.querySelector("#root");
-  var signature_to_save = document.querySelector("#signature")
-
-  localStorage.setItem('root_to_save', JSON.stringify(root_to_save));
-  localStorage.setItem('signature_to_save', JSON.stringify(signature_to_save));
-
-  localStorage.getItem(root_to_save);
-  localStorage.getItem(root_to_save);  
-}
