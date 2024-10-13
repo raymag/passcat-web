@@ -42,16 +42,16 @@ function saveData(){
 }
 
 function toggleMenu(){
-    const toggled = menuBtn.className != '';
+    const toggled = menuBtn.className != ''
 
     if (toggled) {
-        menuBtn.className = "";
-        document.querySelector("#settings").className = "hide";
-        document.querySelector("#home").className = "";
+        menuBtn.className = ""
+        document.querySelector("#settings").className = "hide"
+        document.querySelector("#home").className = ""
     } else {
         menuBtn.className = "opened";
-        document.querySelector("#home").className = "hide";
-        document.querySelector("#settings").className = "";
+        document.querySelector("#home").className = "hide"
+        document.querySelector("#settings").className = ""
     }
 }
 
@@ -113,12 +113,3 @@ function generate() {
 
 
 }
-// the function erases the form's field's contents each 40 seconds
-function Cleanfield(){
-    document.getElementById('signature').value = '';
-    document.getElementById('size').value = '';
-}
-
-setInterval(function(){
-    Cleanfield();
-}, 40 * 1000);
