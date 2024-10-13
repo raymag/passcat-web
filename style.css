@@ -88,7 +88,7 @@ body {
     justify-content: space-between;
 }
 
-#generate {
+#visibility {
     height: 2em;
     width: 40%;
     padding: 10px;
@@ -101,10 +101,10 @@ body {
     border: none;
     cursor: pointer;
 }
-#generate:hover {
+#visibility:hover {
     background: var(--dark);
 }
-#generate:active {
+#visibility:active {
     background: var(--primary);
     color: var(--dark);
 }
