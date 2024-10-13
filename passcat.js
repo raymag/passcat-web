@@ -25,12 +25,11 @@ function loadData() {
     const signature = localStorage.getItem('d092') // signature
     
     if (size) {
-        size_to_save.value = size
+        size_to_save.value = size    
     } 
     if (signature) {
         signature_to_save.value = signature
     }
-    console.log("loaded", size_to_save, size)
 }
 function saveData(){
     const size_to_save = document.querySelector("#size")
@@ -38,37 +37,9 @@ function saveData(){
     
     localStorage.setItem('d2d166', size_to_save.value)
     localStorage.setItem('d092', signature_to_save.value)
-    console.log("crey")
   
     toggleMenu()
 }
-  
-
-function caesarCipher(str, shift) {
-    // Normalize the shift for letters and digits
-    const letterShift = shift % 26;
-    const digitShift = shift % 10;
-    let result = '';
-
-    for (let char of str) {
-        if (/[A-Z]/.test(char)) { // Uppercase letters
-            const newChar = String.fromCharCode((char.charCodeAt(0) - 65 + letterShift) % 26 + 65);
-            result += newChar;
-        } else if (/[a-z]/.test(char)) { // Lowercase letters
-            const newChar = String.fromCharCode((char.charCodeAt(0) - 97 + letterShift) % 26 + 97);
-            result += newChar;
-        } else if (/[0-9]/.test(char)) { // Digits
-            const newChar = String.fromCharCode((char.charCodeAt(0) - 48 + digitShift) % 10 + 48);
-            result += newChar;
-        } else {
-            // If it's a special character, leave it unchanged
-            result += char;
-        }
-    }
-
-    return result;
-}
-
 
 function toggleMenu(){
     const toggled = menuBtn.className != '';
